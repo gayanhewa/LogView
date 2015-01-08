@@ -3,7 +3,7 @@
 LogView
 ========
 
-Simple PHP Library that lest you load your log files.
+Simple PHP Library that lets you load your log files for viewing.
 
 
 
