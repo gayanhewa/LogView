@@ -1,0 +1,24 @@
+{
+    "name": "gayanhewa/log-view",
+    "description": "View Log files",
+    "require": {
+        "symfony/finder": "~2.2",
+        "illuminate/filesystem": "~5.0@dev"
+    },
+    "require-dev": {
+        "codeception/codeception": "~2.1@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Magelk\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gayan",
+            "email": "gayanhewa@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
