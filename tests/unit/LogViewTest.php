@@ -17,10 +17,16 @@ class LogViewTest extends \Codeception\TestCase\Test
         // Set path as the current directory
         $this->log->setPath(__DIR__);
 
+        $f = fopen(__DIR__.'/test.txt', 'a+');
+        $file = new \Illuminate\Filesystem\Filesystem();
+        $file->put(__DIR__.'/test.txt', 'test log line');
+
     }
 
     protected function _after()
     {
+        $file = new \Illuminate\Filesystem\Filesystem();
+        $file->delete(array(__DIR__.'/test.txt'));
     }
 
     // Is path set
@@ -43,5 +49,11 @@ class LogViewTest extends \Codeception\TestCase\Test
     public function testHasFiles()
     {
         $this->assertTrue(($this->log->getFiles() instanceof Traversable), "Is a files collection.");
+        foreach($this->log->getFiles() as $fileObject) {
+            if ($fileObject->getFileName() == 'test.txt') {
+                $this->assertTrue($fileObject->getContents() == 'test log line');
+            }
+        }
+
     }
 }
