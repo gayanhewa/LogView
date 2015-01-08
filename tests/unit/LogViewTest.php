@@ -55,5 +55,6 @@ class LogViewTest extends \Codeception\TestCase\Test
             }
         }
 
+        $this->assertTrue(true);
     }
 }
