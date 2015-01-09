@@ -22,4 +22,27 @@ Useage :
         $contents = $log->getContent($filename);
 ~~~
 
+How to use the Examples
+-----------------------
+
+Clone the Repository
+
+~~~
+    git clone https://github.com/gayanhewa/LogView.git
+~~~
+
+Navigate to the doc directory
+
+~~~
+    cd LogView/doc 
+~~~
+
+Run the PHP Server
+
+~~~
+    php -S localhost:8080
+~~~
+
+Point your browser to http://localhost:8080 and test the code. You can add more files to doc/logs folder for testing.
+
  - Released under [MIT license](License.md).
