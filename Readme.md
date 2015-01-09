@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/gayanhewa/LogView.svg?branch=master)](https://travis-ci.org/gayanhewa/LogView)
+[![Total Downloads](https://poser.pugx.org/matthiasnoback/badges/downloads.png)](https://packagist.org/packages/gayanhewa/log-views)
 
 LogView
 ========
