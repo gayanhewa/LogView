@@ -3,7 +3,7 @@ try {
     if (isset($_REQUEST["filename"])) {
 
         // Path
-        $path = __DIR__ . "/logs/" . $_REQUEST["filename"];
+        $path = __DIR__ . "/logs/";
         $log = new Magelk\LogView();
         $log->setPath($path);
 
