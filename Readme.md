@@ -22,4 +22,4 @@ Useage :
         $contents = $log->getContent($filename);
 ~~~
 
-Release under [MIT license](License.md).
+ - Released under [MIT license](License.md).
