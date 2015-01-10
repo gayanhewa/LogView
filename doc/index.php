@@ -57,8 +57,7 @@
             <option value="">Select File</option>
         </select>
     </div>
-    <div class="log-file">
-
+    <div class="log-file" style="overflow:auto">
     </div>
 </div><!-- /.container -->
 
@@ -68,17 +67,23 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-    $.get('doc/get_file_list.php', function(data){
-        var file_list = _($.parseJSON(data)).toArray();
-        for(i=0;i<file_list.length; i++) {
-            console.log(file_list[i]);
-            $(".file_list").append("<option value='"+file_list[i]+"'>"+file_list[i]+"</option>");
+    $.get('get_file_list.php', function(data){
+        data = JSON.parse(data);
+        var file_list = _(data.message).toArray();
+        console.log(file_list);
+        if (data.error == true) {
+            alert('Error Occured : No files found.');
+        }else {
+            for (i = 0; i < file_list.length; i++) {
+                $(".file_list").append("<option value='" + file_list[i] + "'>" + file_list[i] + "</option>");
+            }
         }
     });
 
     $(".file_list").on('change', function() {
-        $.get('doc/get_file_contents.php?filename'+$(this).val(), function(data){
-            console.log(data);
+        $.get('get_file_contents.php?filename='+$(this).val(), function(data){
+            data = JSON.parse(data);
+            $(".log-file").html(data.message);
         });
     });
 </script>

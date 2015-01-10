@@ -1,19 +1,28 @@
 <?php
+require_once '../vendor/autoload.php';
+
 try {
+
     if (isset($_REQUEST["filename"])) {
 
         // Path
         $path = __DIR__ . "/logs/";
         $log = new Magelk\LogView();
         $log->setPath($path);
+        $content = "Empty File.";
+        foreach($log->getFiles() as $file) {
+            if ($file->getFilename() == $_REQUEST["filename"]) {
+                $content = $log->getContent($file);
+            }
+        }
 
-        return json_encode([
+        echo json_encode([
             'error'=> false,
-            'message'=> $log->getContent($_REQUEST["filename"])
+            'message'=> $content
         ]);
     }
 }catch (Magelk\Exceptions\InvalidPathException $e) {
-    return json_encode([
+    echo json_encode([
        'error' => true,
         'message' => 'Invalid Path'
     ]);
